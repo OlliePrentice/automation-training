@@ -13,11 +13,8 @@ const webpage = async () => {
 
         await driver.switchTo().frame(noticeFrame);
 
-        let button = await driver.wait(
-            until.elementLocated(
-                By.xpath("//*[@id='notice']/div[3]/button[2]")
-            ),
-            1000
+        let button = await driver.findElement(
+            By.xpath("//*[@id='notice']/div[3]/button[2]")
         );
 
         await button.click();

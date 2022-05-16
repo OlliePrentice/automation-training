@@ -1,15 +1,15 @@
 {
-  "name": "automation",
-  "version": "1.0.0",
-  "description": "automation training",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "chromedriver": "^101.0.0",
-    "selenium-webdriver": "^4.1.2"
-  }
+    "name": "automation",
+    "version": "1.0.0",
+    "description": "automation training",
+    "main": "index.js",
+    "scripts": {
+        "test": "node index.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "chromedriver": "^101.0.0",
+        "selenium-webdriver": "^4.1.2"
+    }
 }
