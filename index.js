@@ -1,5 +1,5 @@
 require("chromedriver");
-const { Builder, By, until } = require("selenium-webdriver");
+const { Builder, By, Key } = require("selenium-webdriver");
 
 const webpage = async () => {
     const driver = new Builder().forBrowser("chrome").build();
@@ -13,11 +13,41 @@ const webpage = async () => {
 
         await driver.switchTo().frame(noticeFrame);
 
-        let button = await driver.findElement(
+        let noticeAgree = await driver.findElement(
             By.xpath("//*[@id='notice']/div[3]/button[2]")
         );
 
-        await button.click();
+        await noticeAgree.click();
+
+        await driver.switchTo().defaultContent();
+
+        let searchToggle = await driver.findElement(
+            By.xpath("//*[@id='masthead-search-toggle']")
+        );
+
+        await searchToggle.click();
+
+        let searchInput = await driver.findElement(
+            By.xpath(
+                "//*[@id='masthead-navigation']/div/div[1]/div[2]/div/div/div/div/div/div/div/input"
+            )
+        );
+
+        await new Promise((resolve) => {
+            setTimeout(async () => {
+                await searchInput.sendKeys("Mobile");
+
+                resolve();
+            }, 1000);
+        });
+
+        await new Promise((resolve) => {
+            setTimeout(async () => {
+                await searchInput.sendKeys(Key.RETURN);
+
+                resolve();
+            }, 1000);
+        });
     } catch (error) {
         console.log(error);
     }
